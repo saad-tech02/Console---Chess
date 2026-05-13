@@ -17,20 +17,19 @@ Checkmate and stalemate detection
   Main menu with Play and Exit options
   Clean console interface
 
- OOP Concepts Demonstrated:
+ OOP Concepts used:
 
- **Encapsulation** | Private/protected data members with public getters/setters |
-| **Inheritance** | Base `Piece` class inherited by Pawn, Rook, Knight, Bishop, Queen, King |
-| **Polymorphism** | Virtual function `canMove()` overridden by each piece class |
-| **Abstraction** | Abstract base class `Piece` with pure virtual functions |
-| **Composition** | `Board` class contains 2D array of `Piece*` objects |
-| **Constructors/Destructors** | Proper initialization and memory cleanup |
+ **Encapsulation** : Private/protected data members with public getters/setters 
+ **Inheritance** : Base `Piece` class inherited by Pawn, Rook, Knight, Bishop, Queen, King 
+ **Polymorphism** : Virtual function `canMove()` override by each piece class 
+ **Abstraction** : Abstract base class `Piece` with pure virtual functions 
+ **Composition** : `Board` class contains 2D array of `Piece*` objects 
+ **Constructors/Destructors** : Proper initialization and memory cleanup 
 
 
-### Prerequisites
-
-- C++ Compiler (GCC/G++ recommended)
-- Windows/Linux/Mac terminal
+ Prerequisites
+C++ Compiler 
+ Windows
 
 ### Installation
 
