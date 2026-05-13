@@ -1,4 +1,4 @@
-﻿#include <iostream>
+#include <iostream>
 #include <cstring>
 #include <cstdlib>
 using namespace std;
@@ -110,12 +110,12 @@ public:
         int rowDiff = abs(toRow - row);
         int colDiff = abs(toCol - col);
 
-        // L-shape movement
+        // L shape movement
         if (!((rowDiff == 2 && colDiff == 1) || (rowDiff == 1 && colDiff == 2))) {
             return false;
         }
 
-        // check destination
+        // check next place
         if (board[toRow][toCol] != nullptr && board[toRow][toCol]->getColor() == color) {
             return false;
         }
@@ -286,8 +286,8 @@ public:
     void showBoard() {
         system("cls");
 
-        cout << "\n    a   b   c   d   e   f   g   h\n";
-        cout << "  +---+---+---+---+---+---+---+---+\n";
+        cout << "\n    a   b   c   d   e   f   g   h"<<endl;
+        cout << "  +---+---+---+---+---+---+---+---+"<<endl;
 
         for (int i = 0; i < SIZE; i++) {
             cout << 8 - i << " |";
@@ -303,9 +303,9 @@ public:
             cout << "  +---+---+---+---+---+---+---+---+\n";
         }
 
-        cout << "    a   b   c   d   e   f   g   h\n";
-        cout << "\nWhite: K Q R B N P    Black: k q r b n p\n";
-        cout << "Enter moves like: e2 e4\n\n";
+        cout << "    a   b   c   d   e   f   g   h"<<endl;
+        cout << "\nWhite: K Q R B N P    Black: k q r b n p"<<endl;
+        cout << "Enter moves like: e2 e4"<<endl<<endl;
     }
 
     Piece* findKing(Color clr) {
@@ -515,27 +515,27 @@ public:
     void showCheckmate() {
         system("cls");
         cout << "\n\n\n";
-        cout << "  =============================\n\n";
-        cout << "       C H E C K M A T E !\n\n";
+        cout << "  ============================="<<endl;
+        cout << "       C H E C K M A T E !"<<endl;
         if (turn == WHITE) {
-            cout << "       BLACK Wins!\n";
+            cout << "       BLACK Wins: "<<endl;
         }
         else {
-            cout << "       WHITE Wins!\n";
+            cout << "       WHITE Wins!"<<endl;
         }
-        cout << "\n  =============================\n";
+        cout << "\n  ============================="<<endl;
         cout << "\n  Press Enter for menu...";
         cin.get();
     }
 
     void showStalemate() {
         system("cls");
-        cout << "\n\n\n";
-        cout << "  =============================\n\n";
-        cout << "     S T A L E M A T E !\n\n";
-        cout << "     It's a Draw!\n";
-        cout << "\n  =============================\n";
-        cout << "\n  Press Enter for menu...";
+        cout << "";
+        cout << "  ============================="<<endl;
+        cout << "     S T A L E M A T E !"<<endl;
+        cout << "     It's a Draw!"<<endl;
+        cout << "\n  ============================="<<endl;
+        cout << "\n  Press Enter for Menu..."<<endl;
         cin.get();
     }
 
@@ -543,7 +543,7 @@ public:
         char input[100];
 
         board.showBoard();
-        cout << "Game begins! White plays first.\n\n";
+        cout << "Game begins! White plays first."<<endl;
 
         while (!over) {
             // check game ending conditions
@@ -566,23 +566,23 @@ public:
 
             // get player move
             if (turn == WHITE) {
-                cout << "White's move: ";
+                cout << "White ki move: ";
             }
             else {
-                cout << "Black's move: ";
+                cout << "Black ki move: ";
             }
             cin.getline(input, 100);
 
             if (strcmp(input, "quit") == 0) {
-                cout << "Game ended.\nPress Enter for menu...";
+                cout << "Game ended.\nPress Enter for menu.";
                 cin.get();
                 break;
             }
 
             int fc, fr, tc, tr;
             if (!parseInput(input, fc, fr, tc, tr)) {
-                cout << "Wrong format! Use like: e2 e4\n";
-                cout << "Press Enter...";
+                cout << "Format is Wrong! Use like: a2  a3\n";
+                cout << "Press Enter key..";
                 cin.get();
                 board.showBoard();
                 continue;
@@ -590,7 +590,7 @@ public:
 
             Piece* piece = board.getPiece(fr, fc);
             if (piece == nullptr || piece->getColor() != turn) {
-                cout << "No piece there or wrong color!\n";
+                cout << "either no piece or wrong color!\n";
                 cout << "Press Enter...";
                 cin.get();
                 board.showBoard();
@@ -605,7 +605,7 @@ public:
                 continue;
             }
 
-            // switch player
+            // change player
             if (turn == WHITE) {
                 turn = BLACK;
             }
@@ -613,6 +613,7 @@ public:
                 turn = WHITE;
             }
             board.showBoard();
+            
         }
     }
 };
@@ -632,11 +633,11 @@ int main() {
         }
         else if (choice[0] == '2') {
             system("cls");
-            cout << "\n\nThank you for playing!\n\n";
+            cout << "Thank you for playing!"<<endl;
             run = false;
         }
         else {
-            cout << "Wrong option! Press Enter...";
+            cout << "Option is wrong. press enter: "<<endl;
             cin.get();
         }
     }
